@@ -11,7 +11,10 @@ RUN apt-get -y -qq install zip
 # git
 RUN apt-get -y -qq install git
 # python3
-RUN apt-get -y -qq install python2.7
+RUN apt-get update && apt-get install -y \
+    python \
+    python-setuptools \
+    python-pip
 # bash
 RUN apt-get -y -qq install bash
 # wget
@@ -22,7 +25,6 @@ RUN apt-get -y -qq install docker.io
 RUN apt-get -y -qq install curl
 # pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
-RUN python2.7 get-pip.py
 # aws cli
 RUN pip install awscli --upgrade
 

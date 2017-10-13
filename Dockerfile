@@ -4,6 +4,12 @@ RUN apt-get -y -qq update
 
 RUN apt-get install -y build-essential make automake gcc g++ cpp libkrb5-dev libc6-dev man-db autoconf pkg-config
 
+# xz-utils
+RUN apt-get -y -qq install xz-utils
+# zip
+RUN apt-get -y -qq install zip
+# git
+RUN apt-get -y -qq install git
 # python3
 RUN apt-get -y -qq install python3.4-dev
 # bash
@@ -19,3 +25,11 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python3.4 get-pip.py
 # aws cli
 RUN pip install awscli --upgrade
+
+# node and npm
+RUN wget -O /node-v6.11.3-linux-x64.tar.xz "https://nodejs.org/dist/v6.11.3/node-v6.11.3-linux-x64.tar.xz"
+RUN tar xf /node-v6.11.3-linux-x64.tar.xz
+RUN rm -rf /node-v6.11.3-linux-x64.tar.xz
+RUN mv /node-v6.11.3-linux-x64 /node
+RUN ln -s /node/bin/node /usr/bin/node
+RUN ln -s /node/bin/npm /usr/bin/npm

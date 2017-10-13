@@ -35,4 +35,4 @@ RUN rm -rf /node-v6.11.3-linux-x64.tar.xz
 RUN mv /node-v6.11.3-linux-x64 /node
 RUN ln -s /node/bin/node /usr/bin/node
 RUN ln -s /node/bin/npm /usr/bin/npm
-RUN npm install -g node-pre-gyp
+RUN npm install --unsafe-perm -g node-pre-gyp

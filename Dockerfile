@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN apt-get -y -qq update
 
-RUN apt-get install -y build-essential make automake gcc g++ cpp libkrb5-dev libc6-dev man-db autoconf pkg-config
+RUN apt-get install -y -qq build-essential make automake gcc g++ cpp libkrb5-dev libc6-dev man-db autoconf pkg-config
 
 # xz-utils
 RUN apt-get -y -qq install xz-utils
@@ -11,7 +11,7 @@ RUN apt-get -y -qq install zip
 # git
 RUN apt-get -y -qq install git
 # python3
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y -qq \
     python \
     python-setuptools \
     python-pip
@@ -35,3 +35,4 @@ RUN rm -rf /node-v6.11.3-linux-x64.tar.xz
 RUN mv /node-v6.11.3-linux-x64 /node
 RUN ln -s /node/bin/node /usr/bin/node
 RUN ln -s /node/bin/npm /usr/bin/npm
+RUN npm install -g node-pre-gyp
